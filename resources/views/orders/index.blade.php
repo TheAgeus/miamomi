@@ -69,52 +69,58 @@
 @section('scripts')
 <script>
     function processOrder(orderId, button) {
+    const currentStatus = document.getElementById(`status-${orderId}`).innerText.trim();
+    let newStatus = currentStatus === 'Registrado' 
+                    ? 'En Proceso' 
+                    : (currentStatus === 'En Proceso' 
+                        ? 'Terminado' 
+                        : 'Registrado');
 
-        const currentStatus = document.getElementById(`status-${orderId}`).innerHTML;
+    // Add spinner and disable button
+    button.disabled = true;
+    const originalText = button.innerText;
+    button.innerHTML = '<svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>';
 
-        let newStatus = currentStatus === 'Registrado' ? 'En Proceso' : (currentStatus === 'En Proceso' ? 'Terminado' : currentStatus);
+    fetch(`/orders/${orderId}/update-status`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ status: newStatus })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const statusElement = document.getElementById(`status-${orderId}`);
+            statusElement.innerText = newStatus;
 
-        if ( currentStatus === newStatus) 
-        {
-            newStatus = 'Registrado'
-        }
+            const orderCard = button.closest('.flex-col');
 
-        fetch(`/orders/${orderId}/update-status`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({ status: newStatus })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) 
-            {
-                const statusElement = document.getElementById(`status-${orderId}`);
-                statusElement.innerHTML = `${newStatus}`;
-
-                if (newStatus === 'En Proceso') 
-                {
-                    button.innerHTML = 'Terminar'
-                    button.closest('.flex-col').classList.add('bg-yellow-100');
-                }
-                else if (newStatus === 'Terminado') 
-                {
-                    button.closest('.flex-col').classList.add('bg-green-100');
-                    button.innerHTML = 'Rollback'   
-                }
-                else if (newStatus === 'Registrado') 
-                {
-                    button.innerHTML = 'Procesar'
-                    button.closest('.flex-col').classList.add('bg-white');
-                    button.closest('.flex-col').classList.remove('bg-green-100');
-                    button.closest('.flex-col').classList.remove('bg-yellow-100');
-                    
-                }
+            if (newStatus === 'En Proceso') {
+                button.innerText = 'Terminar';
+                orderCard.classList.remove('bg-white', 'bg-green-100');
+                orderCard.classList.add('bg-yellow-100');
+            } else if (newStatus === 'Terminado') {
+                button.innerText = 'Rollback';
+                orderCard.classList.remove('bg-white', 'bg-yellow-100');
+                orderCard.classList.add('bg-green-100');
+            } else if (newStatus === 'Registrado') {
+                button.innerText = 'Procesar';
+                orderCard.classList.remove('bg-yellow-100', 'bg-green-100');
+                orderCard.classList.add('bg-white');
             }
-        })
-        .catch(error => console.error('Error:', error));
-    }
+        } else {
+            button.innerText = originalText; // Reset button text if the request fails
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        button.innerText = originalText; // Reset button text if there's an error
+    })
+    .finally(() => {
+        button.disabled = false; // Re-enable the button after the fetch is done
+    });
+}
 </script>
 @endsection
