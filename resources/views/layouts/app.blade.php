@@ -28,6 +28,7 @@
             <div class="container mx-auto flex flex-col items-center p-6 max-w-7xl">
                 @yield('content')
             </div>
+            @yield('scripts')
         </main>
     </div>
 </body>

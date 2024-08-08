@@ -29,6 +29,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 
     Route::get('/orders/export', [OrderController::class, 'export'])->name('orders.export');
+
+    // AJAX update status
+    Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
 });    
 
 // This route is for creating a new user PRIVATE

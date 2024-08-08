@@ -19,11 +19,11 @@
                 @csrf
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
-                    <input id="email" name="email" type="email" class="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm" required>
+                    <input id="email" name="email" type="email" class="mt-1 block w-full bg-gray-100 border-pink-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm" required>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                    <input id="password" name="password" type="password" class="mt-1 block w-full border-pink-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm" required>
+                    <input id="password" name="password" type="password" class="mt-1 block w-full bg-gray-100 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm" required>
                 </div>
                 <div class="mb-4">
                     <button type="submit" class="w-full bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">Login</button>

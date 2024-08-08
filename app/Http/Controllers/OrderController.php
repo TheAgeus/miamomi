@@ -93,4 +93,17 @@ class OrderController extends Controller
 
         return Excel::download(new OrdersExport($year, $month), 'orders.xlsx');
     }
+
+    // app/Http/Controllers/OrderController.php
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+        if ($order) {
+            $order->Status = $request->input('status');
+            $order->save();
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false], 404);
+    }
 }

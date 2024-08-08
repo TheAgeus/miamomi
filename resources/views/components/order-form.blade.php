@@ -7,29 +7,29 @@
           @csrf
           <div>
               <label for="full-name" class="block text-sm font-medium text-gray-600">Nombre completo</label>
-              <input id="full-name" name="FullName" type="text" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="full-name" name="FullName" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <div>
               <label for="Email" class="block text-sm font-medium text-gray-600">Correo electrónico</label>
-              <input id="Email" name="Email" type="email" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="Email" name="Email" type="email" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
               <div id="emailError" class="text-red-500 text-sm mt-1"></div>
           </div>
           <div>
               <label for="product-name" class="block text-sm font-medium text-gray-600">Nombre del producto</label>
-              <input id="product-name" name="ProductName" type="text" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="product-name" name="ProductName" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <div>
               <label for="attended-by" class="block text-sm font-medium text-gray-600">Atendió</label>
-              <input id="attended-by" name="AttendedBy" type="text" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="attended-by" name="AttendedBy" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <div>
               <label for="phone-number" class="block text-sm font-medium text-gray-600">Número de teléfono</label>
-              <input id="phone-number" name="PhoneNumber" type="tel" pattern="[0-9]{10}" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="phone-number" name="PhoneNumber" type="tel" pattern="[0-9]{10}" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
               <div id="phoneError" class="text-red-500 text-sm mt-1"></div>
           </div>
           <div>
               <label for="address" class="block text-sm font-medium text-gray-600">Domicilio</label>
-              <input id="address" name="Address" type="text" class="mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <input id="address" name="Address" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <input type="hidden" name="Status" value="En Proceso">
           <div>
