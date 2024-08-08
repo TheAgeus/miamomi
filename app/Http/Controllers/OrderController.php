@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\OrdersExport;
 
 class OrderController extends Controller
 {
@@ -30,13 +32,26 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::paginate(10); // O el número de órdenes que desees mostrar por página
-        $totalOrders = Order::count(); // Obtener el total de órdenes
-        $user = auth()->user(); // Obtener el usuario autenticado
+        // Get all the filters from the request
+        $query = Order::query();
 
-        // Retorna la vista con los datos necesarios
+        // Apply year filter if present
+        if ($request->filled('year')) {
+            $query->whereYear('created_at', $request->year);
+        }
+
+        // Apply month filter if present
+        if ($request->filled('month')) {
+            $query->whereMonth('created_at', $request->month);
+        }
+
+        // Add more filters as needed
+        $orders = $query->paginate(10); // Adjust pagination as needed
+        $totalOrders = $query->count();
+        $user = auth()->user();
+
         return view('orders.index', compact('orders', 'totalOrders', 'user'));
     }
 
@@ -69,5 +84,13 @@ class OrderController extends Controller
         return back()
             ->with('success', '¡El pedido ha sido borrado exitosamente!')
             ->with('status_code', 204);
+    }
+
+    public function export(Request $request)
+    {
+        $year = $request->input('year');
+        $month = $request->input('month');
+
+        return Excel::download(new OrdersExport($year, $month), 'orders.xlsx');
     }
 }

@@ -28,9 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
     Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 
-    Route::get('/orders/export', function () {
-        return Excel::download(new OrdersExport, 'orders.xlsx');
-    })->name('orders.export');
+    Route::get('/orders/export', [OrderController::class, 'export'])->name('orders.export');
 });    
 
 // This route is for creating a new user PRIVATE
