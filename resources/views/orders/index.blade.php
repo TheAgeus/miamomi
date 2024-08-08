@@ -43,6 +43,12 @@
                                 class="status-btn bg-blue-500 text-white px-2 py-1 rounded">
                                 {{ $order->Status === 'Registrado' ? 'Procesar' : 'Terminar' }}
                             </button>
+                        @else
+                            <button 
+                                onclick="processOrder({{ $order->id }}, this)" 
+                                class="status-btn bg-blue-500 text-white px-2 py-1 rounded">
+                                Rollback
+                            </button>
                         @endif
                     </div>
                 </div>
@@ -63,13 +69,15 @@
 @section('scripts')
 <script>
     function processOrder(orderId, button) {
+
         const currentStatus = document.getElementById(`status-${orderId}`).innerHTML;
 
-        const newStatus = currentStatus === 'Registrado' ? 'En Proceso' : (currentStatus === 'En Proceso' ? 'Terminado' : currentStatus);
- 
-        console.log(currentStatus)
-        console.log(newStatus)
+        let newStatus = currentStatus === 'Registrado' ? 'En Proceso' : (currentStatus === 'En Proceso' ? 'Terminado' : currentStatus);
 
+        if ( currentStatus === newStatus) 
+        {
+            newStatus = 'Registrado'
+        }
 
         fetch(`/orders/${orderId}/update-status`, {
             method: 'POST',
@@ -91,10 +99,18 @@
                     button.innerHTML = 'Terminar'
                     button.closest('.flex-col').classList.add('bg-yellow-100');
                 }
-                if (newStatus === 'Terminado') 
+                else if (newStatus === 'Terminado') 
                 {
-                    button.style.display = 'none';
                     button.closest('.flex-col').classList.add('bg-green-100');
+                    button.innerHTML = 'Rollback'   
+                }
+                else if (newStatus === 'Registrado') 
+                {
+                    button.innerHTML = 'Procesar'
+                    button.closest('.flex-col').classList.add('bg-white');
+                    button.closest('.flex-col').classList.remove('bg-green-100');
+                    button.closest('.flex-col').classList.remove('bg-yellow-100');
+                    
                 }
             }
         })
