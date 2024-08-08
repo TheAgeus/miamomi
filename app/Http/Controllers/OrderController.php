@@ -23,7 +23,7 @@ class OrderController extends Controller
         $order = Order::create($request->all());
 
         return back()
-            ->with('success', '¡El pedido ha sido creado exitosamente!')
+            ->with('success', '¡Su solicitud se está procesando para entrega local o envío foráneo!')
             ->with('status_code', 201);
     }
 

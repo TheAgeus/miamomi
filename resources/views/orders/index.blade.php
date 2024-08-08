@@ -7,8 +7,8 @@
 
     <!-- Filter Form -->
     <form action="{{ route('orders.index') }}" method="GET" class="flex flex-wrap gap-4 justify-center mb-4">
-        <input type="number" name="year" placeholder="Year" value="{{ request('year') }}" class="border p-2 rounded" min="1900" max="{{ date('Y') }}">
-        <input type="number" name="month" placeholder="Month" value="{{ request('month') }}" class="border p-2 rounded" min="1" max="12">
+        <input type="number" name="year" placeholder="Year" value="{{ request('year') }}" class="border p-1 rounded" min="1900" max="{{ date('Y') }}">
+        <input type="number" name="month" placeholder="Month" value="{{ request('month') }}" class="border p-1 rounded" min="1" max="12">
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Filter</button>
         <!-- Download Button -->
         <a href="{{ route('orders.export') }}?{{ http_build_query(request()->query()) }}" class="bg-green-500 text-white px-4 py-2 rounded">Download Excel</a>
