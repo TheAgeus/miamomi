@@ -16,11 +16,10 @@ Route::get('/', function () {
 
 Route::get('/login', [AuthController::class, 'login_view'])->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-
 Route::Post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::post('/create-order', [OrderController::class, 'store'])->name('orders.store');
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders-create', [OrderController::class, 'create'])->name('orders.create');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');

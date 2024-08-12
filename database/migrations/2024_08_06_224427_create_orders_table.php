@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('FullName');
             $table->string('Email');
-            $table->string('ProductName');
+            $table->string('ShoeModel');
+            $table->string('ShoeSize');
             $table->string('AttendedBy');
             $table->string('PhoneNumber');
             $table->string('Address');

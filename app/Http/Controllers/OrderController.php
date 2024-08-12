@@ -14,7 +14,8 @@ class OrderController extends Controller
         $request->validate([
             'FullName' => 'required|string|max:255',
             'Email' => 'required|string|email|max:255',
-            'ProductName' => 'required|string|max:255',
+            'ShoeModel' => 'required|string|max:255',
+            'ShoeSize' => 'required|string|max:255',
             'AttendedBy' => 'required|string|max:255',
             'PhoneNumber' => 'required|string|max:15',
             'Address' => 'required|string|max:255',
@@ -65,7 +66,8 @@ class OrderController extends Controller
         $request->validate([
             'FullName' => 'required|max:255',
             'Email' => 'required|email|max:255',
-            'ProductName' => 'required|max:255',
+            'ShoeSize' => 'required|max:255',
+            'ShoeModel' => 'required|max:255',
             'AttendedBy' => 'required|max:255',
             'PhoneNumber' => 'required|max:255',
             'Address' => 'required|max:255',

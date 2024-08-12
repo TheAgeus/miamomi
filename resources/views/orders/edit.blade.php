@@ -15,8 +15,12 @@
             <input type="email" name="Email" id="Email" value="{{ $order->Email }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
         </div>
         <div class="mb-4">
-            <label for="ProductName" class="block text-sm font-medium text-gray-700">Product Name</label>
-            <input type="text" name="ProductName" id="ProductName" value="{{ $order->ProductName }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+            <label for="ShoeModel" class="block text-sm font-medium text-gray-700">Shoe Model</label>
+            <input type="text" name="ShoeModel" id="ShoeModel" value="{{ $order->ShoeModel }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+        </div>
+        <div class="mb-4">
+            <label for="ShoeSize" class="block text-sm font-medium text-gray-700">Shoe Size</label>
+            <input type="text" name="ShoeSize" id="ShoeSize" value="{{ $order->ShoeSize }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
         </div>
         <div class="mb-4">
             <label for="AttendedBy" class="block text-sm font-medium text-gray-700">Attended By</label>

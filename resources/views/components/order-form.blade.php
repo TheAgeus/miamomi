@@ -15,8 +15,12 @@
               <div id="emailError" class="text-red-500 text-sm mt-1"></div>
           </div>
           <div>
-              <label for="product-name" class="block text-sm font-medium text-gray-600">Nombre del producto</label>
-              <input id="product-name" name="ProductName" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+              <label for="shoe-model" class="block text-sm font-medium text-gray-600">Modelo del calzado</label>
+              <input id="shoe-model" name="ShoeModel" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
+          </div>
+          <div>
+            <label for="product-size" class="block text-sm font-medium text-gray-600">Número del calzado</label>
+            <input id="shoe-size" name="ShoeSize" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <div>
               <label for="attended-by" class="block text-sm font-medium text-gray-600">Atendió</label>
@@ -31,7 +35,7 @@
               <label for="address" class="block text-sm font-medium text-gray-600">Domicilio</label>
               <input id="address" name="Address" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
-          <input type="hidden" name="Status" value="En Proceso">
+          <input type="hidden" name="Status" value="Registrada">
           <div>
               <button type="submit" class="w-full bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">Enviar</button>
           </div>

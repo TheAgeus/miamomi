@@ -21,8 +21,9 @@
         @foreach ($orders as $order)
             <div class="{{ $order->Status === 'Terminado' ? 'bg-green-100' : ($order->Status === 'En Proceso' ? 'bg-yellow-100' : 'bg-white') }} p-4 rounded shadow flex-1 flex-col w-full max-w-sm flex-grow">
                 <div class="flex-1">
-                    <h2 class="text-xl font-bold">{{ $order->ProductName }}</h2>
+                    <h2 class="text-xl font-bold">Shoe Model: {{ $order->ShoeModel }}</h2>
                     <p><span class="font-semibold">Order ID:</span> {{ $order->id }}</p>
+                    <p><span class="font-semibold">Shoe Size:</span> {{ $order->ShoeSize }}</p>
                     <p><span class="font-semibold">Full Name:</span> {{ $order->FullName }}</p>
                     <p><span class="font-semibold">Email:</span> {{ $order->Email }}</p>
                     <p><span class="font-semibold">Attended By:</span> {{ $order->AttendedBy }}</p>
