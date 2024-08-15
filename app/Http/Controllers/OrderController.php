@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\OrdersExport;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderStoredEmail;
 
 class OrderController extends Controller
 {
@@ -23,8 +27,14 @@ class OrderController extends Controller
 
         $order = Order::create($request->all());
 
+        $users = User::all();
+
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new OrderStoredEmail($order));
+        }
+
         return back()
-            ->with('success', '¡Su solicitud se está procesando para entrega local o envío foráneo!')
+            ->with('success', '¡Su solicitud se está procesando para entrega!')
             ->with('status_code', 201);
     }
 

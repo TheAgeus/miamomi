@@ -7,8 +7,13 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
 use App\Exports\OrdersExport;
 use Maatwebsite\Excel\Facades\Excel;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +36,14 @@ Route::middleware(['auth'])->group(function () {
 
     // AJAX update status
     Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
 });    
+// MAIL routes
+Route::get('/send-order-email', function() {
+    Mail::to('ageus94@gmail.com')->send(new TestEmail());
+    return 'Test email sent';
+});
+
 
 // This route is for creating a new user PRIVATE
 Route::post('/create-user', [RegisteredUserController::class, 'store']);

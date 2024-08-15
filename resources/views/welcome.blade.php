@@ -9,6 +9,17 @@
     <link rel="icon" href="{{ asset('images/miamomi.png') }}" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/miamomi.png') }}">
 </head>
+
+<style>
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
+  </style>
+  
+  <div style="position: absolute; top:1rem; right:1rem;">
+    <a class="text-black" href="/login">Login</a>
+  </div>
+
 <body>
     
     <!-- Store order from -->

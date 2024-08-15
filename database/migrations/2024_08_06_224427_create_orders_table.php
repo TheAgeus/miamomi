@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('AttendedBy');
             $table->string('PhoneNumber');
             $table->string('Address');
+            $table->string('OrderType');
             $table->string('Status');
             $table->timestamps();
         });

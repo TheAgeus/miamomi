@@ -43,6 +43,7 @@ class OrdersExport implements FromCollection, WithHeadings
             'Attended By',
             'Phone Number',
             'Address',
+            'OrderType',
             'Status',
             'created_at',
             'updated_at'

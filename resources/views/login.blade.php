@@ -8,6 +8,11 @@
     <link rel="icon" href="{{ asset('images/miamomi.png') }}" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/miamomi.png') }}">
 </head>
+
+<div style="position: absolute; top:1rem; right:1rem;">
+    <a class="text-black" href="/">Home</a>
+</div>
+
 <body class="bg-pink-50">
     <header class="bg-pink-600 text-white py-4 shadow-md">
         <div class="container mx-auto text-center">

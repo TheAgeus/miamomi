@@ -29,6 +29,7 @@
                     <p><span class="font-semibold">Attended By:</span> {{ $order->AttendedBy }}</p>
                     <p><span class="font-semibold">Phone Number:</span> {{ $order->PhoneNumber }}</p>
                     <p><span class="font-semibold">Address:</span> {{ $order->Address }}</p>
+                    <p><span class="font-semibold">OrderType:</span> {{ $order->OrderType }}</p>
                     <p><span class="font-semibold">Status:</span> <span id="status-{{ $order->id }}">{{ $order->Status }}</span></p>
                     <p><span class="font-semibold">Created Date:</span> {{ $order->created_at }}</p>
                     <div class="mt-4 flex gap-2">

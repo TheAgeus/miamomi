@@ -34,6 +34,13 @@
             <label for="Address" class="block text-sm font-medium text-gray-700">Address</label>
             <input type="text" name="Address" id="Address" value="{{ $order->Address }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
         </div>
+        <div>
+            <label for="address" class="block text-sm font-medium text-gray-700">Tipo de pedido</label>
+            <select required name="orderType" id="orderType" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                <option value="Local">Local</option>
+                <option value="Foraneo">Foraneo</option>
+            </select>
+        </div>
         <div class="mb-5">
             <label for="Status" class="block text-sm font-medium text-gray-700">Status</label>
             <input type="text" name="Status" id="Status" value="{{ $order->Status }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
