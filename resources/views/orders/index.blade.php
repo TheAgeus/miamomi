@@ -34,6 +34,11 @@
                     <p><span class="font-semibold">Created Date:</span> {{ $order->created_at }}</p>
                     <div class="mt-4 flex gap-2">
                         <a href="{{ route('orders.edit', $order) }}" class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</a>
+                        <a href="{{ route('orders.printTicket', ['order' => $order->id]) }}" 
+                            class="bg-green-500 text-white px-2 py-1 rounded" 
+                            target="_blank">
+                            Imprimir
+                         </a>
                         <form action="{{ route('orders.destroy', $order) }}" method="POST" class="inline-block">
                             @csrf
                             @method('DELETE')

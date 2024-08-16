@@ -37,12 +37,8 @@ Route::middleware(['auth'])->group(function () {
     // AJAX update status
     Route::post('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
 
+    Route::get('/orders/{order}/ticket', [OrderController::class, 'printTicket'])->name('orders.printTicket');
 });    
-// MAIL routes
-Route::get('/send-order-email', function() {
-    Mail::to('ageus94@gmail.com')->send(new TestEmail());
-    return 'Test email sent';
-});
 
 
 // This route is for creating a new user PRIVATE

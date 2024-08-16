@@ -106,7 +106,7 @@ class OrderController extends Controller
         return Excel::download(new OrdersExport($year, $month), 'orders.xlsx');
     }
 
-    // app/Http/Controllers/OrderController.php
+
     public function updateStatus(Request $request, $id)
     {
         $order = Order::find($id);
@@ -117,5 +117,12 @@ class OrderController extends Controller
         }
 
         return response()->json(['success' => false], 404);
+    }
+
+    public function printTicket($orderId)
+    {
+        $order = Order::findOrFail($orderId);
+
+        return view('orders.ticket', ['order' => $order]);
     }
 }

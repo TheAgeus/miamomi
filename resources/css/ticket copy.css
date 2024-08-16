@@ -1,0 +1,139 @@
+* {
+  font-size: 1.2rem;
+}
+
+.grey-qo-regular {
+  font-family: "Grey Qo", cursive;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.kaushan-script-regular {
+  font-family: "Kaushan Script", cursive;
+  font-style: normal;
+  
+}
+
+
+
+.ticket {
+  padding-inline: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 0.1rem;
+  width: 11in;
+  background-color: rgba(255, 181, 207, 0.2);
+}
+
+.flex-full-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header {
+  display: flex;
+}
+
+
+.left-header {
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+.right-header {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.right-top-header {
+  flex: 2;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.right-bottom-header {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.social-media > .text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+.icon {
+  color: #ff1b8d; /* Color rosa */
+  font-size: 24px; /* Tamaño del icono */
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.body {
+  padding-top: 1rem;
+}
+
+.text {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Body area */
+.field {
+  padding-inline: 1rem;
+  padding-block: 0.2rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.field-text {
+  line-height: 2.5rem;
+  font-weight: bold;
+}
+
+.footer {
+  margin: 1rem;
+}
+.total-area {
+  border: dashed 2px ;
+  flex: 1;
+  height: 2rem;
+
+}
+.total {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-weight: bold;
+}
+
+.thanks {
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: white;
+  background-color: #ff6078;
+  width: 70%;
+  text-align: center;
+  word-spacing: 0.4rem;
+  letter-spacing: 0.3rem;
+
+}

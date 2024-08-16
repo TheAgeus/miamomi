@@ -38,7 +38,7 @@
               <input required id="address" name="Address" type="text" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
           </div>
           <div>
-            <label for="address" class="block text-sm font-medium text-gray-600">Tipo de pedido</label>
+            <label for="address" class="block text-sm font-medium text-gray-600">Tipo de envío</label>
             <select required name="OrderType" id="OrderType" class="bg-gray-100 mt-1 block w-full border-pink-300 rounded-lg shadow-sm focus:ring-pink-500 focus:border-pink-500 sm:text-sm">
                 <option value="Local">Local</option>
                 <option value="Foraneo">Foraneo</option>
